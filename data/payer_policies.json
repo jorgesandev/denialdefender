@@ -1,0 +1,18 @@
+{
+  "unitedhealthcare": {
+    "MN-204": "UHC Clinical Policy Bulletin #2024-MSK-012: Advanced Imaging for Musculoskeletal Conditions. MRI of the lumbar spine is considered medically necessary when there is documented failure of at least 6 weeks of conservative therapy (PT, NSAIDs). EXCEPTION: Immediate advanced imaging is medically necessary and the 6-week requirement is waived if the patient presents with 'red flag' symptoms, specifically progressive neurological deficits such as foot drop, saddle anesthesia, or bowel/bladder incontinence."
+  },
+  "anthem blue cross blue shield": {
+    "PA-101": "Anthem Provider Manual, Section 4.3.5 (Administrative Denials). If a service requiring prior authorization is rendered without such authorization due to provider administrative error, and the member was not informed in writing prior to the procedure, the provider must hold the member harmless. A retroactive authorization may be granted if the procedure is proven clinically urgent or if the provider demonstrates the omission was a pure administrative oversight without compromising patient care."
+  },
+  "aetna": {
+    "NC-302": "Aetna Clinical Policy Bulletin 0070: Diabetes Management. Continuous Glucose Monitors (CGM) are covered for Type 2 Diabetics on intensive insulin regimens (3+ injections). EXCEPTION: CGM is considered medically necessary for ANY insulin-dependent diabetic (including basal-only regimens) who has documented 'hypoglycemia unawareness' with at least two severe nocturnal hypoglycemic episodes (<55 mg/dL) in the past 30 days, as this represents a critical safety risk."
+  },
+  "cigna healthcare": {
+    "CE-150": "Cigna Cardiac Imaging Clinical Coverage Policy #0521. A complete transthoracic echocardiogram (CPT 93306) is medically necessary for the evaluation of new-onset dyspnea (R06.00) accompanied by a new systolic murmur (R01.1), as these findings are highly suspicious for undiagnosed valvular heart disease (e.g., aortic stenosis). It is NOT indicated for routine screening of asymptomatic coronary artery disease (I25.10)."
+  },
+  "blue cross blue shield of illinois": {
+    "EX-401": "BCBS-IL Medical Policy #2025-RAD-008. Proton Beam Radiation Therapy (PBRT) is generally considered investigational for breast cancer. EXCEPTION: PBRT may be deemed medically necessary for left-sided breast cancer on a case-by-case basis if the patient has significant pre-existing cardiac comorbidities (e.g., prior myocarditis, reduced LVEF, arrhythmias) AND a comparative dosimetric plan demonstrates that standard photon therapy would deliver an unsafe Mean Heart Dose (>4.0 Gy) while PBRT significantly reduces this risk."
+  },
+  "default": "The requested service must meet standard medical necessity criteria, defined as interventions that are clinically appropriate in terms of type, frequency, extent, site, and duration, and considered effective for the patient's illness, injury, or disease."
+}

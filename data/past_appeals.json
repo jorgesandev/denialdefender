@@ -1,0 +1,27 @@
+[
+  {
+    "payer": "UnitedHealthcare",
+    "denial_code": "MN-204",
+    "text": "Past Appeal Excerpt (WON): 'The denial based on insufficient conservative therapy duration is inappropriate because the patient presented with a progressive neurological deficit (new-onset foot drop, motor strength 3/5). Per UHC Clinical Policy Bulletin #2024-MSK-012, this constitutes a red-flag symptom that explicitly waives the 6-week conservative therapy requirement. Immediate MRI was medically necessary to rule out compressive myelopathy.'"
+  },
+  {
+    "payer": "Anthem Blue Cross Blue Shield",
+    "denial_code": "PA-101",
+    "text": "Past Appeal Excerpt (WON): 'While prior authorization was inadvertently not obtained due to a scheduling coordinator error, the patient was not notified of this administrative failure and cannot be held financially responsible per CA Health & Safety Code 1371.8. Furthermore, the arthroscopic meniscectomy was clinically necessary as documented by the MRI findings and failure of 4 weeks of physical therapy.'"
+  },
+  {
+    "payer": "Aetna",
+    "denial_code": "NC-302",
+    "text": "Past Appeal Excerpt (WON): 'The plan exclusion for basal-only insulin regimens is superseded by the patient's documented hypoglycemia unawareness. The ADA Standards of Medical Care in Diabetes state that CGM should be offered to all insulin-treated patients at high risk for hypoglycemia. The patient experienced two severe nocturnal hypoglycemic episodes, representing an acute safety risk that justifies a medical exception to the standard coverage policy.'"
+  },
+  {
+    "payer": "Cigna Healthcare",
+    "denial_code": "CE-150",
+    "text": "Past Appeal Excerpt (WON): 'Please accept this corrected claim. The original submission incorrectly listed I25.10 (CAD) as the primary diagnosis. The actual clinical indication for the echocardiogram was new-onset dyspnea (R06.00) and a newly discovered systolic murmur (R01.1), which are covered indications under Cigna Policy #0521 for the evaluation of suspected valvular disease.'"
+  },
+  {
+    "payer": "Blue Cross Blue Shield of Illinois",
+    "denial_code": "EX-401",
+    "text": "Past Appeal Excerpt (WON): 'The classification of PBRT as investigational is inappropriate in this specific clinical context. The patient has significant cardiac comorbidities including prior myocarditis and a borderline LVEF. The comparative dosimetric plan shows photon therapy would result in a Mean Heart Dose of 4.8 Gy (posing a 35% excess relative risk of major coronary events per Darby et al., NEJM), compared to 0.3 Gy with PBRT. This extreme cardiac risk differential renders PBRT medically necessary and standard-of-care for this patient.'"
+  }
+]

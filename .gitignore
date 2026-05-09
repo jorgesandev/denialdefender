@@ -32,6 +32,7 @@ Thumbs.db
 # Private / internal planning
 /temp/
 temp_pdf_content.txt
+/internal_logs
 
 # Synthetic data (generated locally, not committed)
 data/synthetic/denials/*

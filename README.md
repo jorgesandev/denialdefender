@@ -50,7 +50,7 @@ DenialDefender is an AI system that drafts insurance appeal letters at scale. A 
 
 ## Architecture
 
-```
+```text
 ┌────────────────────────────────────────────────────────────────┐
 │                        Frontend (Next.js)                      │
 │   Drag-drop denial upload → Streaming generation → Review UI   │
@@ -62,13 +62,13 @@ DenialDefender is an AI system that drafts insurance appeal letters at scale. A 
 │  ┌──────────┐  ┌──────────┐  ┌───────────┐  ┌──────────────┐  │
 │  │ Denial   │  │ Patient  │  │ Policy    │  │ Past-Appeal  │  │
 │  │ Intake   │  │ Context  │  │ Retrieval │  │ Retrieval    │  │
-│  │ (OCR/VL) │  │ Retrieval│  │           │  │              │  │
+│  │ (Qwen-VL)│  │ Retrieval│  │           │  │              │  │
 │  └────┬─────┘  └────┬─────┘  └─────┬─────┘  └──────┬───────┘  │
 │       └──────────────┴──────────────┴───────────────┘          │
 │                           │                                    │
 │              ┌────────────▼────────────┐                       │
 │              │   Appeal Generation     │                       │
-│              │   (Qwen2.5-72B via      │                       │
+│              │   (Qwen3-32B via        │                       │
 │              │    vLLM + ROCm)         │                       │
 │              └────────────┬────────────┘                       │
 │                           │                                    │
@@ -89,26 +89,27 @@ DenialDefender is an AI system that drafts insurance appeal letters at scale. A 
 | Layer | Technology |
 |---|---|
 | **Compute** | AMD Instinct MI300X (192 GB HBM3, 5.3 TB/s) via AMD Developer Cloud |
-| **Models** | Qwen2.5-72B-Instruct + Qwen2.5-VL-72B (co-resident, FP16, single GPU) |
-| **Inference** | vLLM with ROCm backend (prefix caching, paged attention, continuous batching) |
-| **Backend** | FastAPI · Python 3.11 · Pydantic |
+| **Models** | Qwen3-32B (Reasoning) + Qwen2.5-VL-7B (Vision) |
+| **Inference** | vLLM with ROCm backend (Co-resident on a single GPU) |
+| **Backend** | FastAPI · Python 3.12 · Pydantic · pdfplumber |
 | **Database** | PostgreSQL 16 + pgvector |
 | **Frontend** | Next.js · Tailwind CSS |
-| **Deployment** | Hugging Face Space (demo) · Docker Compose (local dev) |
 
-## Quick Start
+## Quick Start (Hybrid Local/Remote Dev)
+
+DenialDefender uses a hybrid dev environment: the heavy AI compute runs on a remote AMD MI300X droplet, while the FastAPI and Next.js applications run locally on your machine for rapid iteration.
 
 ### Prerequisites
 
-- Python 3.11+
+- Python 3.12 (Highly recommended for stable wheel builds)
 - Node.js 20+
-- Docker & Docker Compose
-- (For GPU inference) Access to AMD MI300X via [AMD Developer Cloud](https://www.amd.com/en/developer/resources/cloud-access/amd-developer-cloud.html)
+- Access to an AMD MI300X Droplet with vLLM installed
+- Mac Users: `brew install poppler` (Required for local PDF processing)
 
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/jorgesandev/denialdefender.git
+git clone [https://github.com/jorgesandev/denialdefender.git](https://github.com/jorgesandev/denialdefender.git)
 cd denialdefender
 ```
 
@@ -116,106 +117,78 @@ cd denialdefender
 
 ```bash
 cp .env.example .env
-# Edit .env with your configuration
+# Edit .env to ensure the VLLM URLs point to localhost
 ```
 
-### 3. Start the database
-
+### 3. Establish the GPU Tunnel
+Forward the remote vLLM ports to your local machine so your backend can communicate with the MI300X:
 ```bash
-docker compose up -d
+ssh -L 8000:localhost:8000 -L 8001:localhost:8001 root@<your-droplet-ip>
 ```
+*(Leave this terminal running in the background).*
 
-### 4. Start the backend
-
+### 4. Start the Backend (FastAPI)
+Create an isolated Python 3.12 virtual environment, install dependencies, and boot the server:
 ```bash
 cd backend
-python -m venv venv
+python3.12 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-uvicorn main:app --reload --port 8080
+
+# Run the modular application
+uvicorn app.main:app --reload --port 9000
 ```
 
-### 5. Start the frontend
-
+### 5. Start the Frontend (Next.js)
+In a new terminal:
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-The frontend runs at `http://localhost:3000` and the backend API at `http://localhost:8080`.
+The Next.js frontend runs at `http://localhost:3000` and talks to the FastAPI backend at `http://localhost:9000`.
 
 ## Project Structure
 
-```
+```text
 denialdefender/
-├── backend/                 # FastAPI application
-│   ├── main.py              # API routes and app entry point
-│   └── requirements.txt     # Python dependencies
+├── backend/                 
+│   ├── app/                 # Modular FastAPI backend
+│   │   ├── __init__.py
+│   │   ├── main.py          # Orchestrator & Routes
+│   │   ├── ingest.py        # PDF OCR and VL extraction
+│   │   ├── retrieval.py     # RAG logic (Charts, Policies, Lit)
+│   │   └── prompts.py       # System instructions and prompt building
+│   ├── requirements.txt     
+│   └── test_api.py          # Quick CLI test script
 ├── frontend/                # Next.js application
 │   ├── app/                 # App Router pages and layouts
-│   ├── public/              # Static assets
 │   └── package.json
 ├── data/
-│   └── synthetic/
-│       └── denials/         # Synthetic denial letters for testing
-├── brand/                   # Brand assets (logos, covers)
-├── docker-compose.yml       # PostgreSQL + pgvector setup
-├── .env.example             # Environment variable template
-├── DenialDefender_Project_Brief.pdf
-├── LICENSE                  # MIT License
+│   ├── synthetic/           # Synthetic denial PDFs and patient charts
+│   ├── payer_policies.json  # Mock DB for payer rules
+│   └── past_appeals.json    # Mock DB for successful appeals
+├── .env.example             
 └── README.md
 ```
 
-## Demo
+## Why AMD MI300X?
 
-> 🚧 **Coming soon** — Live demo deploying to Hugging Face Spaces.
->
-> The end-to-end demo flow: upload a synthetic denial letter → AI generates a complete appeal packet in ~90 seconds → side-by-side review UI with confidence scoring.
+DenialDefender's workload is **memory-bandwidth-bound long-context inference**. Each appeal requires ingesting massive context windows (denial letter + patient chart + payer policy + clinical literature + past appeals). 
 
-## Why AMD MI300X
-
-DenialDefender's workload is **memory-bandwidth-bound long-context inference** — each appeal requires 130K–650K tokens of context (denial letter + patient chart + payer policy + clinical literature + past appeals). The MI300X is uniquely suited:
-
-- **192 GB HBM3** — co-resident Qwen2.5-72B + Qwen2.5-VL-72B on a single GPU, no quantization compromise
-- **5.3 TB/s bandwidth** — 1.6× H100 SXM5, directly translates to lower per-appeal latency
-- **4–8× lower per-appeal compute cost** vs. H100-based infrastructure ($1.99–$2.35/GPU-hr vs. $4–$7)
-- Contingency pricing requires per-appeal compute in single-digit dollars — MI300X makes that math work
+The MI300X is uniquely suited for this architecture:
+- **192 GB HBM3**: Allows us to run a 32-billion parameter reasoning model AND a 7-billion parameter vision model *co-resident* on a single GPU in FP16, with zero quantization compromise.
+- **5.3 TB/s bandwidth**: Crucial for rapidly processing 40K+ token context windows to hit our 90-second SLA.
+- **Unit Economics**: Contingency pricing requires per-appeal compute in single-digit dollars. The MI300X makes that math work at scale.
 
 ## Data Sources
-
 All data used is **synthetic or open-licensed**. No real PHI is used at any point.
-
-- **Patient charts:** [Synthea](https://synthetichealth.github.io/synthea/) (MITRE, Apache 2.0)
-- **Payer policies:** CMS Medicare Coverage Determinations (public domain)
+- **Patient charts:** Synthea (MITRE, Apache 2.0)
+- **Payer policies:** CMS Medicare Coverage Determinations
 - **Clinical literature:** PubMed Central Open Access Subset
-- **Denial letters:** Synthesized from public appeal-writing guides
-
-## Contributing
-
-We welcome contributions! This project is in active development during the AMD Developer Hackathon 2026.
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/your-feature`)
-3. Commit your changes (`git commit -m 'Add your feature'`)
-4. Push to the branch (`git push origin feature/your-feature`)
-5. Open a Pull Request
-
-Please see our code of conduct and contribution guidelines (coming soon).
-
-## Roadmap
-
-- [x] Project scaffolding and local dev environment
-- [ ] End-to-end appeal generation pipeline on MI300X
-- [ ] Multimodal denial intake (OCR + vision-language model)
-- [ ] Frontend: drag-drop upload + streaming generation UI
-- [ ] Hugging Face Space deployment
-- [ ] Synthetic dataset (50+ denial scenarios, 5 payers, 8 specialties)
-- [ ] Per-payer style transfer and confidence scoring
-- [ ] LoRA fine-tuning for payer-specific appeal styles
 
 ## License
-
 This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
 ## Author
@@ -227,16 +200,7 @@ This project is licensed under the MIT License — see the [LICENSE](LICENSE) fi
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-jorgesandev-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/jorgesandev)
 [![Email](https://img.shields.io/badge/Email-contact@jorgesandoval.dev-C8102E?style=flat-square&logo=gmail)](mailto:contact@jorgesandoval.dev)
 
-## Acknowledgements
-
-- **AMD** — MI300X compute via the [AMD Developer Cloud](https://www.amd.com/en/developer/resources/cloud-access/amd-developer-cloud.html)
-- **Hugging Face** — Model hosting and Spaces deployment
-- **lablab.ai** — Hackathon organization and community
-- **Qwen Team** — Open-weight models powering the appeal generation pipeline
-- **vLLM** — High-performance inference engine with ROCm support
-
 ---
-
 <p align="center">
   <strong>Team Sophon</strong> · AMD Developer Hackathon 2026 · Vision & Multimodal AI Track
 </p>

@@ -58,7 +58,7 @@ demo = gr.Interface(
         ),
     ],
     outputs=[
-        gr.Textbox(label="Generated Appeal Letter", lines=30, show_copy_button=True),
+        gr.Textbox(label="Generated Appeal Letter", lines=30),
         gr.Textbox(label="Pipeline Metadata"),
     ],
     title="DenialDefender",
@@ -69,8 +69,7 @@ demo = gr.Interface(
         "Full FP16, no quantization. ~129GB / 192GB VRAM. ~$0.03 compute per appeal.\n\n"
         "Built for the AMD Developer Hackathon 2026."
     ),
-    allow_flagging="never",
-)
+    )
 
 if __name__ == "__main__":
     demo.launch()

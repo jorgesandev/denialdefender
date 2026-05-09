@@ -1,6 +1,8 @@
 import json, os, re
 from pathlib import Path
 
+DATA_DIR = Path(__file__).parent.parent.parent / "data"
+
 # --- 1. Patient chart retrieval ---
 def retrieve_chart_spans(chart_text: str, denial: dict) -> str:
     if len(chart_text) < 30000:
@@ -13,10 +15,10 @@ def retrieve_chart_spans(chart_text: str, denial: dict) -> str:
 
 # --- 2. Payer policy lookup ---
 def retrieve_payer_policy(denial: dict) -> str:
-    policy_path = Path("../data/payer_policies.json")
+    policy_path = DATA_DIR / "payer_policies.json"
     if not policy_path.exists():
         return "No specific payer policy found in mock data."
-        
+
     PAYER_POLICIES = json.loads(policy_path.read_text())
     payer = denial.get("payer", "").lower()
     code = denial.get("denial_code", "")
@@ -51,7 +53,7 @@ def retrieve_literature(denial: dict, k: int = 5) -> list[str]:
 
 # --- 4. Past successful appeals ---
 def retrieve_past_appeals(denial: dict, k: int = 3) -> list[str]:
-    appeals_path = Path("../data/past_appeals.json")
+    appeals_path = DATA_DIR / "past_appeals.json"
     if not appeals_path.exists():
         return []
         

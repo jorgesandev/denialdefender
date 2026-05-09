@@ -25,7 +25,7 @@ async def health_check():
     return {"status": "healthy"}
 
 @app.post("/api/generate")
-async def generate(denial_pdf: UploadFile = File(...), chart_text: str = Form(...)):
+async def generate(denial_pdf: UploadFile = File(...), chart_text: str = Form(default="")):
     t0 = time.time()
     
     # 1. Ingest (uses vision model if scanned)

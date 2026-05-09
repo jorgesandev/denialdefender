@@ -34,6 +34,12 @@ Thumbs.db
 temp_pdf_content.txt
 /internal_logs
 
+# Demo recordings (large binary, local only — screenshots/ is committed)
+/media/
+
+# Local env overrides (each service has its own)
+frontend/.env.local
+
 # Synthetic data (generated locally, not committed)
 data/synthetic/denials/*
 !data/synthetic/denials/.gitkeep

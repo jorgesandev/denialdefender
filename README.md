@@ -7,10 +7,10 @@
     <em>We don't charge if we don't recover.</em>
   </p>
   <p align="center">
-    <a href="#quick-start">Quick Start</a> •
+    <a href="#quick-start-hybrid-localremote-dev">Quick Start</a> •
     <a href="#architecture">Architecture</a> •
     <a href="#demo">Demo</a> •
-    <a href="#contributing">Contributing</a> •
+    <a href="#hf-space-deployment">HF Space</a> •
     <a href="LICENSE">License</a>
   </p>
 </p>
@@ -47,6 +47,14 @@ DenialDefender is an AI system that drafts insurance appeal letters at scale. A 
 - ✅ Human review before submission — always
 
 **What it is not:** DenialDefender does not diagnose, prescribe, auto-submit appeals, or replace clinical judgment. It produces drafts for trained humans to evaluate and submit.
+
+## Demo
+
+> Live Space link will be added once the AMD MI300X droplet is running — check back Saturday.
+
+Upload any insurance denial letter (digital PDF or scanned/faxed image) to see the full pipeline: Qwen2.5-VL-7B reads the document if there's no text layer, four retrievers assemble the context window, and Qwen3-32B writes the appeal. End-to-end in ~60 seconds. Compute cost: ~$0.03.
+
+To run the demo locally: follow the Quick Start steps below, then open `http://localhost:3000`.
 
 ## Architecture
 
@@ -109,15 +117,18 @@ DenialDefender uses a hybrid dev environment: the heavy AI compute runs on a rem
 ### 1. Clone the repo
 
 ```bash
-git clone [https://github.com/jorgesandev/denialdefender.git](https://github.com/jorgesandev/denialdefender.git)
+git clone https://github.com/jorgesandev/denialdefender.git
 cd denialdefender
 ```
 
 ### 2. Set up environment variables
 
 ```bash
-cp .env.example .env
-# Edit .env to ensure the VLLM URLs point to localhost
+cp .env.example backend/.env
+# VLLM_LLM_URL and VLLM_VL_URL default to localhost — correct for SSH tunnel setup
+
+cp .env.example frontend/.env.local
+# Only NEXT_PUBLIC_API_URL is read by Next.js; the others are ignored
 ```
 
 ### 3. Establish the GPU Tunnel
@@ -149,27 +160,74 @@ npm run dev
 
 The Next.js frontend runs at `http://localhost:3000` and talks to the FastAPI backend at `http://localhost:9000`.
 
+---
+
+## HF Space Deployment
+
+The `hf_space/` directory is a self-contained Gradio app that proxies to the FastAPI backend. The backend stays on your droplet; the Space just wraps it in a public UI.
+
+### 1. Expose FastAPI publicly
+
+```bash
+# On the droplet (or locally if tunneled):
+pip install pyngrok
+ngrok http 9000
+# Copy the https://xxxx.ngrok.app URL
+```
+
+### 2. Push to Hugging Face
+
+```bash
+# Create a new Space at huggingface.co/new-space (Gradio, public)
+# then push hf_space/ as its repo root:
+cd hf_space
+git init
+git remote add origin https://huggingface.co/spaces/<your-org>/<space-name>
+git add .
+git commit -m "feat: initial DenialDefender Space"
+git push -u origin main
+```
+
+### 3. Set the secret
+
+In your Space settings → **Secrets**, add:
+
+| Key | Value |
+|---|---|
+| `NGROK_URL` | `https://xxxx.ngrok.app` |
+
+The Space reads this at runtime to route requests to your live FastAPI instance.
+
 ## Project Structure
 
 ```text
 denialdefender/
-├── backend/                 
-│   ├── app/                 # Modular FastAPI backend
-│   │   ├── __init__.py
-│   │   ├── main.py          # Orchestrator & Routes
-│   │   ├── ingest.py        # PDF OCR and VL extraction
-│   │   ├── retrieval.py     # RAG logic (Charts, Policies, Lit)
-│   │   └── prompts.py       # System instructions and prompt building
-│   ├── requirements.txt     
-│   └── test_api.py          # Quick CLI test script
-├── frontend/                # Next.js application
-│   ├── app/                 # App Router pages and layouts
-│   └── package.json
+├── backend/
+│   ├── app/
+│   │   ├── main.py          # FastAPI routes — orchestrates the full pipeline
+│   │   ├── ingest.py        # PDF text extraction; falls back to Qwen2.5-VL-7B for scans
+│   │   ├── retrieval.py     # Four retrievers: chart, policy, literature, past appeals
+│   │   └── prompts.py       # System prompt + prompt builder for Qwen3-32B
+│   ├── requirements.txt
+│   └── test_api.py          # Quick smoke-test script
+├── frontend/                # Next.js 16 + Tailwind 4
+│   ├── app/
+│   │   ├── page.tsx         # Two-panel UI: upload → generated appeal
+│   │   └── layout.tsx
+│   └── .env.local           # NEXT_PUBLIC_API_URL (not committed)
+├── hf_space/                # Hugging Face Space deployment
+│   ├── app.py               # Gradio interface — proxies to FastAPI via NGROK_URL
+│   ├── requirements.txt
+│   └── README.md            # Space card (frontmatter + description)
 ├── data/
-│   ├── synthetic/           # Synthetic denial PDFs and patient charts
-│   ├── payer_policies.json  # Mock DB for payer rules
-│   └── past_appeals.json    # Mock DB for successful appeals
-├── .env.example             
+│   ├── synthetic/           # Five synthetic denial cases (PDF + chart)
+│   ├── payer_policies.json  # Payer-specific policy excerpts keyed by denial code
+│   └── past_appeals.json    # Winning appeal excerpts for few-shot retrieval
+├── screenshots/             # rocm-smi captures for social posts
+├── media/                   # Screen recordings for demo (not committed)
+├── internal_logs/
+│   └── friday_log.md        # Running build log — commands, blockers, decisions
+├── .env.example             # Annotated template for all env vars
 └── README.md
 ```
 

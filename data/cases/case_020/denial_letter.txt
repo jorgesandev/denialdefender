@@ -1,0 +1,24 @@
+[PAYER_LOGO_PLACEHOLDER]
+BCBS Health Plans
+Provider Billing Services
+
+Date: 2026-05-10
+Member Name: Sasha806 Renner328
+Member ID: b03985e9-38d0-4564-1b52-4a8651cecdd5
+Date of Service: 2021-09-10
+
+EXPLANATION OF BENEFITS / CLAIM DENIAL
+
+Dear Sasha806 Renner328,
+
+We have processed the claim submitted by your provider for Orthopedics services on 2021-09-10. 
+
+Reason for Denial:
+The claim cannot be processed as submitted due to a coding error. The procedure codes (CPT/HCPCS) billed do not align with the submitted diagnosis codes (ICD-10) or lack appropriate modifiers based on the provided clinical notes. 
+
+Next Steps:
+Your provider must review the coding guidelines and submit a corrected claim or an appeal with supporting documentation demonstrating the appropriate code selection.
+
+Sincerely,
+Provider Billing Services
+BCBS Health Plans

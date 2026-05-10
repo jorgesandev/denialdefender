@@ -1,0 +1,24 @@
+[PAYER_LOGO_PLACEHOLDER]
+Cigna Health Plans
+P.O. Box 12345
+Claims Processing Department
+
+Date: 2026-05-10
+Member Name: Janella261 Adams676
+Member ID: b795bf03-28fb-ad1d-5a43-3e44422700a7
+Date of Service: 2021-06-14
+
+NOTICE OF ADVERSE BENEFIT DETERMINATION
+
+Dear Janella261 Adams676,
+
+We have received a claim for Endocrinology services from your provider on 2021-06-14. After careful review of the clinical documentation submitted, we are denying coverage for the requested service.
+
+Reason for Denial:
+Based on our medical policies, the requested service does not meet the criteria for medical necessity. Specifically, the clinical notes do not establish that conservative therapy (e.g., physical therapy, pharmacotherapy) was attempted and failed prior to the requested intervention. Objective clinical evidence supporting the necessity of this procedure was not found in the submitted records.
+
+If you or your provider disagree with this determination, you have the right to file an appeal. Please submit a letter of appeal along with additional supporting documentation (e.g., clinical notes, imaging results, lab reports) demonstrating medical necessity within 180 days of receiving this notice.
+
+Sincerely,
+Medical Review Department
+Cigna Health Plans

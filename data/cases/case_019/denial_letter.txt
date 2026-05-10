@@ -1,0 +1,23 @@
+[PAYER_LOGO_PLACEHOLDER]
+Cigna Health Plans
+Member Services
+
+Date: 2026-05-10
+Member Name: Claire652 Lakin515
+Member ID: aeabbc7e-1f5f-91fe-ac34-52c1ceca0b6b
+Date of Service: 2021-05-17
+
+NOTICE OF DENIAL: ELIGIBILITY
+
+Dear Claire652 Lakin515,
+
+We have received a claim for Endocrinology services on 2021-05-17. 
+
+Reason for Denial:
+According to our records, your coverage under Cigna was not active on the date of service. Therefore, we cannot provide benefits for these services.
+
+If you believe this is an error and you had active coverage on the date of service, please contact Member Services or file an appeal with proof of eligibility.
+
+Sincerely,
+Member Eligibility Team
+Cigna Health Plans

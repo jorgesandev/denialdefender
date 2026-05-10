@@ -1,0 +1,24 @@
+[PAYER_LOGO_PLACEHOLDER]
+UHC Health Plans
+Provider Billing Services
+
+Date: 2026-05-10
+Member Name: Elton404 Homenick806
+Member ID: 22b01ffb-7537-e873-3a7c-0d6961c498d7
+Date of Service: 2021-10-04
+
+EXPLANATION OF BENEFITS / CLAIM DENIAL
+
+Dear Elton404 Homenick806,
+
+We have processed the claim submitted by your provider for Behavioral Health services on 2021-10-04. 
+
+Reason for Denial:
+The claim cannot be processed as submitted due to a coding error. The procedure codes (CPT/HCPCS) billed do not align with the submitted diagnosis codes (ICD-10) or lack appropriate modifiers based on the provided clinical notes. 
+
+Next Steps:
+Your provider must review the coding guidelines and submit a corrected claim or an appeal with supporting documentation demonstrating the appropriate code selection.
+
+Sincerely,
+Provider Billing Services
+UHC Health Plans

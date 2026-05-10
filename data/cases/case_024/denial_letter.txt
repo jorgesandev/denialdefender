@@ -1,0 +1,23 @@
+[PAYER_LOGO_PLACEHOLDER]
+Cigna Health Plans
+Clinical Review Department
+
+Date: 2026-05-10
+Member Name: Marjory382 Beatty507
+Member ID: 989f497b-48d4-50e7-2df2-9b583f0ceebc
+Date of Service: 2021-05-23
+
+NOTICE OF CLAIM DENIAL - MISSING INFORMATION
+
+Dear Marjory382 Beatty507,
+
+We are unable to process the claim for Endocrinology services from your provider on 2021-05-23.
+
+Reason for Denial:
+The clinical documentation submitted with the claim is incomplete. We previously requested comprehensive clinical notes, including history of present illness, physical exam findings, and relevant lab/imaging reports. Because this information was not received within the 30-day timeframe, the claim is denied.
+
+Your provider may appeal this decision by submitting the requested comprehensive clinical documentation.
+
+Sincerely,
+Clinical Review Department
+Cigna Health Plans

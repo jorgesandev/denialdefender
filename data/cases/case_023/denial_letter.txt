@@ -1,0 +1,23 @@
+[PAYER_LOGO_PLACEHOLDER]
+UHC Health Plans
+Member Services
+
+Date: 2026-05-10
+Member Name: Leif534 Abbott774
+Member ID: d477c46c-6e56-e32f-0c28-7356caab1e8b
+Date of Service: 2021-07-17
+
+NOTICE OF DENIAL: ELIGIBILITY
+
+Dear Leif534 Abbott774,
+
+We have received a claim for Orthopedics services on 2021-07-17. 
+
+Reason for Denial:
+According to our records, your coverage under UHC was not active on the date of service. Therefore, we cannot provide benefits for these services.
+
+If you believe this is an error and you had active coverage on the date of service, please contact Member Services or file an appeal with proof of eligibility.
+
+Sincerely,
+Member Eligibility Team
+UHC Health Plans

@@ -1,0 +1,23 @@
+[PAYER_LOGO_PLACEHOLDER]
+UHC Health Plans
+Prior Authorization Department
+
+Date: 2026-05-10
+Member Name: Dino214 Huel628
+Member ID: f8d9fe9e-f635-5340-41cc-935771d6dec0
+Date of Service: 2021-08-18
+
+NOTICE OF CLAIM DENIAL
+
+Dear Dino214 Huel628,
+
+This letter is to inform you that the claim for Endocrinology services rendered on 2021-08-18 has been denied.
+
+Reason for Denial:
+Our records indicate that the required prior authorization was not obtained for this elective procedure. Under your UHC plan, Endocrinology procedures require authorization at least 14 days prior to the service date. We do not have a record of an authorization request on file, nor does the documentation indicate an emergency situation where life or limb was at immediate risk.
+
+You may appeal this decision by submitting an appeal letter with proof of authorization or clinical evidence establishing an emergency exception.
+
+Sincerely,
+Claims Adjudication Team
+UHC Health Plans

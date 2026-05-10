@@ -1,0 +1,24 @@
+[PAYER_LOGO_PLACEHOLDER]
+BCBS Health Plans
+Provider Billing Services
+
+Date: 2026-05-10
+Member Name: Suzan149 Franecki195
+Member ID: 69280d14-c5eb-897b-59ce-e4432cd9509a
+Date of Service: 2021-11-13
+
+EXPLANATION OF BENEFITS / CLAIM DENIAL
+
+Dear Suzan149 Franecki195,
+
+We have processed the claim submitted by your provider for Gastroenterology services on 2021-11-13. 
+
+Reason for Denial:
+The claim cannot be processed as submitted due to a coding error. The procedure codes (CPT/HCPCS) billed do not align with the submitted diagnosis codes (ICD-10) or lack appropriate modifiers based on the provided clinical notes. 
+
+Next Steps:
+Your provider must review the coding guidelines and submit a corrected claim or an appeal with supporting documentation demonstrating the appropriate code selection.
+
+Sincerely,
+Provider Billing Services
+BCBS Health Plans

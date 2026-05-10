@@ -1,0 +1,23 @@
+[PAYER_LOGO_PLACEHOLDER]
+Aetna Health Plans
+Clinical Review Department
+
+Date: 2026-05-10
+Member Name: Emogene884 Schroeder447
+Member ID: 7decf363-d260-555d-ffaf-a2c2833f39d6
+Date of Service: 2021-10-10
+
+NOTICE OF CLAIM DENIAL - MISSING INFORMATION
+
+Dear Emogene884 Schroeder447,
+
+We are unable to process the claim for Orthopedics services from your provider on 2021-10-10.
+
+Reason for Denial:
+The clinical documentation submitted with the claim is incomplete. We previously requested comprehensive clinical notes, including history of present illness, physical exam findings, and relevant lab/imaging reports. Because this information was not received within the 30-day timeframe, the claim is denied.
+
+Your provider may appeal this decision by submitting the requested comprehensive clinical documentation.
+
+Sincerely,
+Clinical Review Department
+Aetna Health Plans

@@ -1,0 +1,24 @@
+[PAYER_LOGO_PLACEHOLDER]
+Aetna Health Plans
+P.O. Box 12345
+Claims Processing Department
+
+Date: 2026-05-10
+Member Name: Graham902 Willms744
+Member ID: 2c293700-fabf-3c0c-8d1a-67cd127dcb12
+Date of Service: 2008-06-06
+
+NOTICE OF ADVERSE BENEFIT DETERMINATION
+
+Dear Graham902 Willms744,
+
+We have received a claim for Gastroenterology services from your provider on 2008-06-06. After careful review of the clinical documentation submitted, we are denying coverage for the requested service.
+
+Reason for Denial:
+Based on our medical policies, the requested service does not meet the criteria for medical necessity. Specifically, the clinical notes do not establish that conservative therapy (e.g., physical therapy, pharmacotherapy) was attempted and failed prior to the requested intervention. Objective clinical evidence supporting the necessity of this procedure was not found in the submitted records.
+
+If you or your provider disagree with this determination, you have the right to file an appeal. Please submit a letter of appeal along with additional supporting documentation (e.g., clinical notes, imaging results, lab reports) demonstrating medical necessity within 180 days of receiving this notice.
+
+Sincerely,
+Medical Review Department
+Aetna Health Plans

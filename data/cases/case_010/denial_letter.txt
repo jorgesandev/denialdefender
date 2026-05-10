@@ -1,0 +1,23 @@
+[PAYER_LOGO_PLACEHOLDER]
+BCBS Health Plans
+Prior Authorization Department
+
+Date: 2026-05-10
+Member Name: Krystyna791 VonRueden376
+Member ID: d02b2ca5-7e63-1c3d-505f-3a7218bac46d
+Date of Service: 2021-07-04
+
+NOTICE OF CLAIM DENIAL
+
+Dear Krystyna791 VonRueden376,
+
+This letter is to inform you that the claim for Orthopedics services rendered on 2021-07-04 has been denied.
+
+Reason for Denial:
+Our records indicate that the required prior authorization was not obtained for this elective procedure. Under your BCBS plan, Orthopedics procedures require authorization at least 14 days prior to the service date. We do not have a record of an authorization request on file, nor does the documentation indicate an emergency situation where life or limb was at immediate risk.
+
+You may appeal this decision by submitting an appeal letter with proof of authorization or clinical evidence establishing an emergency exception.
+
+Sincerely,
+Claims Adjudication Team
+BCBS Health Plans

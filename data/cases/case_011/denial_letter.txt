@@ -1,0 +1,24 @@
+[PAYER_LOGO_PLACEHOLDER]
+BCBS Health Plans
+P.O. Box 12345
+Claims Processing Department
+
+Date: 2026-05-10
+Member Name: Awilda854 McClure239
+Member ID: faf1d0f2-c429-72a4-5be0-e542949829ab
+Date of Service: 2021-11-05
+
+NOTICE OF ADVERSE BENEFIT DETERMINATION
+
+Dear Awilda854 McClure239,
+
+We have received a claim for Oncology services from your provider on 2021-11-05. After careful review of the clinical documentation submitted, we are denying coverage for the requested service.
+
+Reason for Denial:
+Based on our medical policies, the requested service does not meet the criteria for medical necessity. Specifically, the clinical notes do not establish that conservative therapy (e.g., physical therapy, pharmacotherapy) was attempted and failed prior to the requested intervention. Objective clinical evidence supporting the necessity of this procedure was not found in the submitted records.
+
+If you or your provider disagree with this determination, you have the right to file an appeal. Please submit a letter of appeal along with additional supporting documentation (e.g., clinical notes, imaging results, lab reports) demonstrating medical necessity within 180 days of receiving this notice.
+
+Sincerely,
+Medical Review Department
+BCBS Health Plans

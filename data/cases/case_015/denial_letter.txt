@@ -1,0 +1,23 @@
+[PAYER_LOGO_PLACEHOLDER]
+Aetna Health Plans
+Clinical Review Department
+
+Date: 2026-05-10
+Member Name: Javier97 Tijerina14
+Member ID: 9ccd0d4f-f8f2-34a4-4ba9-9b9b92c6370a
+Date of Service: 2021-08-17
+
+NOTICE OF CLAIM DENIAL - MISSING INFORMATION
+
+Dear Javier97 Tijerina14,
+
+We are unable to process the claim for Endocrinology services from your provider on 2021-08-17.
+
+Reason for Denial:
+The clinical documentation submitted with the claim is incomplete. We previously requested comprehensive clinical notes, including history of present illness, physical exam findings, and relevant lab/imaging reports. Because this information was not received within the 30-day timeframe, the claim is denied.
+
+Your provider may appeal this decision by submitting the requested comprehensive clinical documentation.
+
+Sincerely,
+Clinical Review Department
+Aetna Health Plans

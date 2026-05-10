@@ -5,6 +5,9 @@
   </p>
   <p align="center">
     <em>We don't charge if we don't recover.</em>
+    <a href="https://huggingface.co/spaces/lablab-ai-amd-developer-hackathon/denialdefender">
+      <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Space-blue" alt="Hugging Face Space">
+    </a>
   </p>
   <p align="center">
     <a href="#quick-start-hybrid-localremote-dev">Quick Start</a> •
@@ -50,7 +53,7 @@ DenialDefender is an AI system that drafts insurance appeal letters at scale. A 
 
 ## Demo
 
-> Live Space link will be added once the AMD MI300X droplet is running — check back Saturday.
+**[Live Demo on Hugging Face Spaces](https://huggingface.co/spaces/lablab-ai-amd-developer-hackathon/denialdefender)**
 
 Upload any insurance denial letter (digital PDF or scanned/faxed image) to see the full pipeline: Qwen2.5-VL-7B reads the document if there's no text layer, four retrievers assemble the context window, and Qwen3-32B writes the appeal. End-to-end in ~60 seconds. Compute cost: ~$0.03.
 

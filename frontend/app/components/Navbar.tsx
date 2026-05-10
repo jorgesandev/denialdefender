@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ShieldAlert, ShieldCheck, Activity } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Navbar() {
   const [online, setOnline] = useState<boolean | null>(null);
@@ -24,12 +24,15 @@ export default function Navbar() {
 
   return (
     <nav className="nav-bar">
-      <div className="flex items-center gap-3">
-        <Image src="/brand/logos/logo-blue.svg" alt="DenialDefender Logo" width={24} height={24} />
-        <span style={{ fontWeight: 800, fontSize: 16, letterSpacing: "-0.02em" }}>
-          DenialDefender
-        </span>
-      </div>
+      <Link href="/" className="flex items-center gap-3" aria-label="DenialDefender home">
+        <Image
+          src="/brand/logos/logo-with-text-hq.png"
+          alt="DenialDefender"
+          width={138}
+          height={30}
+          priority
+        />
+      </Link>
 
       <div className="hidden md:flex items-center gap-8 text-sm font-medium">
         <a href="#demo" className="subtle-link">Demo</a>

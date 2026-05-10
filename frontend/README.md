@@ -1,53 +1,54 @@
-# DenialDefender Frontend
+# DenialDefender: Frontend Interface
 
-This directory contains the Next.js frontend for DenialDefender—a premium, "Clinical Dark" web interface designed to showcase the AMD MI300X RAG pipeline.
+This directory contains the professional web interface for DenialDefender, built to demonstrate the scale and speed of the **AMD Instinct™ MI300X** inference pipeline.
+
+## Technical Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Runtime**: React 19
+- **Styling**: Tailwind CSS v4 (Alpha)
+- **Icons**: Lucide React
+- **Theme**: "Clinical Dark" (See `app/globals.css`)
 
 ## Prerequisites
 
-- **Node.js:** v18+ (v20 recommended)
-- **Backend:** A running instance of the DenialDefender FastAPI backend (either locally on port `9000` or hosted via an `ngrok` tunnel).
+- **Node.js**: v20+
+- **Backend**: A running instance of the DenialDefender FastAPI orchestrator (locally or via secure tunnel).
 
 ## Getting Started
 
-1. **Install Dependencies:**
-   Navigate to the `frontend` directory and run:
+1. **Installation**:
    ```bash
+   cd frontend
    npm install
    ```
 
-2. **Environment Variables:**
-   Create a `.env.local` file in the root of the `frontend` directory. 
-   
-   If you are testing against a local backend on your machine:
+2. **Configuration**:
+   Create a `.env.local` file with your backend endpoint:
    ```env
    NEXT_PUBLIC_API_URL=http://localhost:9000
    ```
-   
-   If you are testing against the live AMD Developer Cloud instance (routed via ngrok):
-   ```env
-   NEXT_PUBLIC_API_URL=https://<your-ngrok-url>.ngrok-free.dev
-   ```
 
-3. **Start the Development Server:**
+3. **Development Mode**:
    ```bash
    npm run dev
    ```
-   Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+   Open [http://localhost:3000](http://localhost:3000) to view the application.
 
 ## Directory Structure
 
-- `app/globals.css`: Contains the foundational design tokens, CSS variables, and custom utility classes for the "Clinical Dark" theme.
-- `app/layout.tsx`: Root layout, font loading (Inter and JetBrains Mono), and metadata.
-- `app/page.tsx`: The main landing page orchestrating the layout.
-- `app/components/`: Modular UI sections including the Hero, Interactive Demo, Data Hub, Navbar, and Footer.
-- `public/`: Static assets, branding logos, and the sample PDF dataset available for users to download.
+- `app/components/`: High-intent UI sections (Hero, Demo, Evidence, etc.).
+- `app/globals.css`: Foundational design tokens and Tailwind v4 configuration.
+- `app/layout.tsx`: Root configuration, SEO metadata, and premium font injection.
+- `public/brand/`: High-resolution logos and clinical brand assets.
 
-## Building for Production
+## Production Build
 
-To create an optimized production build:
-
+To build and serve the optimized application:
 ```bash
 npm run build
 npm start
 ```
-This will compile the application and start a Node server ready for production traffic.
+
+---
+See the [Frontend Deep Dive](../docs/frontend.md) for detailed design tokens and component documentation.

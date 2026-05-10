@@ -1,63 +1,52 @@
-# DenialDefender Frontend
+# DenialDefender: Frontend Design & Architecture
 
-This document describes the frontend's style, layout, and where to find the key UI pieces. The site uses a refined "Executive Light" theme with a clean, premium landing layout (NAV → HERO → ProofBar → Workflow → Demo → Evidence → Guardrails → CTA → Footer).
+This document outlines the design philosophy, technical stack, and component architecture for the DenialDefender frontend.
 
-## Tech & Design Summary
-- **Framework:** Next.js 16 (App Router)
-- **UI:** React 19 + Tailwind CSS v4
-- **Icons:** lucide-react (fallbacks: `GitFork` used where `Github` wasn't available)
-- **Fonts:** Sora for display, IBM Plex Sans for body, IBM Plex Mono for code (wired in `app/layout.tsx` and CSS variables)
-- **Theme:** "Executive Light" — light backgrounds, a saturated blue navbar (`#0f4c81`), subtle elevated cards, and restrained accent colors.
+## 1. Design Philosophy: "Clinical Dark"
 
-## Key Files & Assets
-- Logo: [frontend/public/brand/logos/logo-with-text-hq.png](frontend/public/brand/logos/logo-with-text-hq.png)
-- Navbar: [frontend/app/components/Navbar.tsx](frontend/app/components/Navbar.tsx)
-- Global tokens & theme: [frontend/app/globals.css](frontend/app/globals.css)
-- Hero: [frontend/app/components/HeroSection.tsx](frontend/app/components/HeroSection.tsx)
-- Demo: [frontend/app/components/DemoSection.tsx](frontend/app/components/DemoSection.tsx)
-- Evidence & Data: [frontend/app/components/EvidenceSection.tsx](frontend/app/components/EvidenceSection.tsx)
+The DenialDefender UI is designed to evoke trust, precision, and medical authority. We utilize a **"Clinical Dark"** aesthetic:
+- **Primary Palette**: Deep slate backgrounds, crisp white typography, and clinical blue accents.
+- **Typography**: Sora for headings (modern/clean), IBM Plex Sans for body (highly readable), and IBM Plex Mono for technical/data overlays.
+- **Micro-interactions**: Subtle hover states and smooth progress transitions to reduce user anxiety during the 60-90s inference window.
 
-## Components (what they do)
-- **Navbar:** compact branding + centered nav links; shows health/status pills and external links. Adjust height/padding in [globals.css](frontend/app/globals.css) and logo sizing in [Navbar.tsx](frontend/app/components/Navbar.tsx).
-- **HeroSection:** main value prop and CTAs (Try Demo, View Evidence, GitHub & Hugging Face buttons). Status pill polls the backend health endpoint.
-- **ProofBar:** metric tiles under the fold to build trust.
-- **WorkflowSection:** 4-step visual pipeline explanation.
-- **DemoSection:** upload UI, progress simulation, and streaming/display of generated appeal.
-- **EvidenceSection / DataHubSection:** documents data sources, payer policies, and sample downloads.
-- **GuardrailsSection & FinalCTASection:** usage guidance and closing CTA.
+## 2. Technical Stack
 
-## Styling & Tokens
-- Global tokens live in `frontend/app/globals.css` and are used across Tailwind utilities.
-- Navbar color: `#0f4c81` (see `.nav-bar` in `globals.css`).
-- Fonts are injected via `app/layout.tsx` and referenced with CSS vars: `--font-display`, `--font-body`, `--font-code`.
+- **Framework**: Next.js 15 (App Router)
+- **Runtime**: React 19
+- **Styling**: Tailwind CSS v4 (Alpha)
+- **Icons**: Lucide React
+- **Deployment**: Vercel (Production) / Hugging Face Spaces (Demo)
 
-## Run & Development
-1. Install and run the frontend:
+## 3. Core Component Architecture
 
+The application is structured into high-intent sections:
+
+- **HeroSection**: Immediate value proposition and system health monitoring.
+- **ProofBar**: Live metrics demonstrating the scale of the denial problem.
+- **WorkflowSection**: A 4-step visualization of the RAG pipeline.
+- **DemoSection**: The core interaction layer. Handles file uploads, multipart form submission, and real-time inference streaming.
+- **EvidenceSection**: Transparency layer showing the data sources and payer policies used in generation.
+- **GuardrailsSection**: Clear documentation on what the AI does and does not do (Human-in-the-loop).
+
+## 4. State Management & API Integration
+
+The frontend maintains a lean state footprint:
+- **API URL**: Configured via `NEXT_PUBLIC_API_URL` in `.env.local`.
+- **Health Polling**: A background hook pings the FastAPI `/health` endpoint to update the UI "System Online" status.
+- **Streaming**: The demo UI consumes a server-sent events (SSE) style stream from the backend, rendering the appeal letter word-by-word for a superior UX.
+
+## 5. Development & Customization
+
+To run the frontend locally:
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-2. Set the backend URL in `frontend/.env.local`:
-
-```env
-NEXT_PUBLIC_API_URL=http://localhost:9000
-```
-
-3. The app will be available at `http://localhost:3000` by default.
-
-## Quick tips for common edits
-- Increase navbar height or logo size: edit [globals.css](frontend/app/globals.css) `.nav-bar` height and padding, then update the `Image` `width`/`height` values in [Navbar.tsx](frontend/app/components/Navbar.tsx).
-- Change hero CTA labels or add icons: edit [HeroSection.tsx](frontend/app/components/HeroSection.tsx).
-- Update theme tokens (colors/spacing): edit `frontend/app/globals.css` and follow existing CSS variable naming to keep Tailwind utilities consistent.
-
-## Environment & API
-- The frontend reads only one runtime variable: `NEXT_PUBLIC_API_URL` (used to call `/api/generate` and the health endpoint).
-
-## Contact
-For visual tweaks or new design assets, edit `frontend/public/brand/logos/` and update `Navbar.tsx` for sizing. Ping the repo owner for deployment keys and HF Space credentials.
+### Common Customizations:
+- **Branding**: Logos are stored in `public/brand/logos/`. Sizing is controlled in `components/Navbar.tsx`.
+- **Theme Tokens**: Global colors and font pairings are defined in `app/globals.css` using Tailwind v4 CSS variables.
 
 ---
-See the live code in `frontend/app/components/` for implementation details and examples.
+See the [Backend Documentation](backend.md) for details on how the frontend communicates with the MI300X inference engine.

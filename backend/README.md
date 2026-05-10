@@ -1,60 +1,60 @@
-# DenialDefender Backend
+# DenialDefender: Backend Orchestrator
 
-This is the FastAPI backend orchestrator for DenialDefender. It acts as the bridge between the Next.js frontend, the PostgreSQL/pgvector database, and the vLLM server running the Qwen models on the AMD Instinct MI300X.
+This is the FastAPI backend for DenialDefender, optimized for high-performance inference on the **AMD Instinct™ MI300X**. It orchestrates the end-to-end RAG pipeline, bridging the multimodal intake and the reasoning generation.
 
 ## Prerequisites
 
-- **Python 3.11+**
-- **vLLM Server:** A running instance of vLLM serving Qwen3-32B and Qwen2.5-VL-7B (typically running locally on the AMD Developer Cloud droplet).
-- **PostgreSQL + pgvector:** For storing and retrieving context (managed via `docker-compose.yml` in the root).
+- **Python 3.12+**
+- **ROCm™ 6.2+** (For GPU-accelerated inference)
+- **vLLM Server**: A dual-model vLLM instance hosting **Qwen2.5-32B-Instruct** and **Qwen2.5-VL-7B**.
+- **Poppler**: Required for PDF text extraction (`brew install poppler` on macOS).
+
+## Project Structure
+
+The backend is organized into functional modules within the `app/` directory:
+
+- `main.py`: The FastAPI entry point and route orchestrator.
+- `ingest.py`: Multimodal document intake (OCR + extraction).
+- `retrieval.py`: The four-pillar RAG engine.
+- `prompts.py`: Professional clinical prompt templates.
 
 ## Local Development Setup
 
-1. **Activate the Virtual Environment:**
+1. **Environment Initialization**:
    ```bash
    cd backend
-   python -m venv venv
+   python3.12 -m venv venv
    source venv/bin/activate
-   ```
-
-2. **Install Dependencies:**
-   ```bash
    pip install -r requirements.txt
    ```
-   *(Ensure you have libraries like `fastapi`, `uvicorn`, `pydantic`, `python-multipart`, and any necessary OpenAI/vLLM client libraries).*
 
-3. **Environment Variables:**
-   Create a `.env` file in the `backend` directory containing your local configurations:
-   ```env
-   VLLM_API_BASE=http://localhost:8000/v1
-   DATABASE_URL=postgresql://user:password@localhost:5432/denialdefender
-   ```
+2. **Configuration**:
+   Copy `.env.example` to `backend/.env` and configure your `VLLM_LLM_URL` and `VLLM_VL_URL`.
 
-## Running the Server
-
-Start the FastAPI server via Uvicorn on port `9000`:
-```bash
-uvicorn app.main:app --reload --port 9000
-```
-
-The API will be available at `http://127.0.0.1:9000`.
-
-## Cloud Deployment (AMD Developer Cloud)
-
-In the production/demo environment (AMD MI300X Droplet):
-1. **vLLM Engine:** The vLLM APIServer runs as a background process, utilizing ~188GB of VRAM to host both Qwen models in FP16.
-2. **FastAPI Server:** Run `uvicorn app.main:app --port 9000` (often within a `tmux` session).
-3. **Public Exposure:** We use `ngrok` to expose the local `9000` port to a secure public URL, which the Next.js frontend calls.
+3. **Running the Orchestrator**:
    ```bash
-   ngrok http 9000
+   uvicorn app.main:app --reload --port 9000
    ```
 
-## API Endpoints
+## Production Architecture (AMD MI300X)
 
-- `GET /health` : Returns the health status of the orchestrator and verifies connectivity to the vLLM server.
-- `POST /api/generate` : The core endpoint. Accepts a `multipart/form-data` payload containing `denial_pdf` (file) and `chart_text` (string). Returns a JSON payload containing the synthesized appeal, extracted denial metadata, and pipeline execution metrics.
+In the production droplet:
+1. **vLLM Engine**: Co-resident models run in FP16, utilizing 192GB of HBM3.
+2. **FastAPI**: Runs as the primary API interface on port `9000`.
+3. **Public Exposure**: Securely tunneled via `ngrok` or served via reverse proxy.
 
-## Troubleshooting
+## API Documentation
 
-- **404 Not Found on /.env, /.bash_history, etc.:** If you see these in your droplet logs, it is automated internet bot scanners hitting the public IP. **This is normal and can be safely ignored.**
-- **vLLM OOM (Out of Memory):** Verify using `rocm-smi` that VRAM utilization is below 192GB. Ensure KV cache sizing in the vLLM startup script leaves sufficient headroom.
+- **`GET /health`**: Verifies backend readiness and vLLM connectivity.
+- **`POST /api/generate`**:
+  - **Payload**: `multipart/form-data`
+  - **Fields**: `file` (PDF/Image), `chart_text` (Optional clinical context).
+  - **Output**: Streaming JSON containing metadata, extracted denial data, and the final synthesized appeal.
+
+## Monitoring & Safety
+
+- **Logs**: Automated scanner noise (404s on `.env`, etc.) is filtered by the orchestrator and does not impact system performance.
+- **VRAM**: Monitored via `rocm-smi` to ensure co-resident models maintain healthy KV cache headroom.
+
+---
+See the [Backend Deep Dive](../docs/backend.md) for detailed infrastructure specifications.

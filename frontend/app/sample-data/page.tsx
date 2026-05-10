@@ -23,7 +23,7 @@ export default function SampleDataPage() {
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center gap-2 subtle-link" style={{ textDecoration: "none" }}>
             <span className="text-xl">🛡️</span>
-            <span style={{ fontWeight: 800, fontSize: 16, letterSpacing: "-0.02em", color: "var(--text-primary)" }}>
+            <span style={{ fontWeight: 800, fontSize: 16, letterSpacing: "-0.02em", color: "#ffffff" }}>
               DenialDefender
             </span>
           </Link>
@@ -87,7 +87,7 @@ export default function SampleDataPage() {
                 </div>
                 <div
                   style={{
-                    fontFamily: "var(--font-mono)",
+                    fontFamily: "var(--font-code)",
                     fontSize: 18,
                     fontWeight: 700,
                     color: "var(--text-primary)",
@@ -103,7 +103,7 @@ export default function SampleDataPage() {
                 <span
                   style={{
                     display: "inline-block",
-                    background: "rgba(59,130,246,0.15)",
+                    background: "rgba(14,116,144,0.12)",
                     color: "var(--accent-primary)",
                     fontSize: 12,
                     fontWeight: 500,
@@ -116,14 +116,14 @@ export default function SampleDataPage() {
                 <span
                   style={{
                     display: "inline-block",
-                    background: "rgba(255,255,255,0.05)",
+                    background: "var(--bg-input)",
                     color: "var(--text-muted)",
                     fontSize: 12,
                     fontWeight: 500,
                     padding: "4px 12px",
                     borderRadius: 8,
                     border: "1px solid var(--border-default)",
-                    fontFamily: "var(--font-mono)",
+                    fontFamily: "var(--font-code)",
                   }}
                 >
                   {c.denialCode}

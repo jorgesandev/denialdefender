@@ -169,11 +169,11 @@ export default function DemoSection() {
   };
 
   return (
-    <section id="demo" className="py-24 bg-[#0a0f1a] border-t border-[#1e3a5f]">
+    <section id="demo" className="py-24 section-soft">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Interactive Demo</h2>
-          <p className="text-[#94a3b8] max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-semibold text-slate-900 mb-4">Interactive Demo</h2>
+          <p className="text-slate-600 max-w-2xl mx-auto">
             Experience the RAG-on-MI300X pipeline. Upload a denial letter and watch the autonomous appeal generation in real-time.
           </p>
         </div>
@@ -190,10 +190,10 @@ export default function DemoSection() {
                   onClick={() => handleCaseClick(c)}
                 >
                   <div className="flex justify-between items-start mb-1">
-                    <span className="font-semibold text-sm">🏥 {c.patient}, {c.age}{c.sex}</span>
+                    <span className="font-semibold text-sm text-slate-900">🏥 {c.patient}, {c.age}{c.sex}</span>
                   </div>
-                  <div className="text-[13px] text-[#94a3b8] mb-1">{c.denialReason} — {c.procedure}</div>
-                  <div className="flex justify-between items-center text-xs text-[#64748b]">
+                  <div className="text-[13px] text-slate-600 mb-1">{c.denialReason} — {c.procedure}</div>
+                  <div className="flex justify-between items-center text-xs text-slate-500">
                     <span>{c.payer} · {fmt(c.amount)}</span>
                     <span className="font-semibold" style={{ color: c.outcomeColor }}>⚡ {c.outcome}</span>
                   </div>
@@ -203,7 +203,7 @@ export default function DemoSection() {
           </div>
 
           {/* RIGHT: Pipeline UI */}
-          <div className="lg:col-span-8 surface-card p-6 min-h-[500px] flex flex-col justify-center relative">
+          <div className="lg:col-span-8 surface-card p-6 min-h-125 flex flex-col justify-center relative">
             
             {pipelineState === "idle" && (
               <div className="animate-fade-in flex flex-col gap-6 max-w-lg mx-auto w-full">
@@ -214,11 +214,11 @@ export default function DemoSection() {
                   onDragLeave={() => setDragOver(false)}
                   onDrop={onDrop}
                 >
-                  <Upload className="w-10 h-10 text-[#3b82f6] mb-4" />
-                  <div className="text-[15px] font-medium text-white mb-1">
+                  <Upload className="w-10 h-10 text-accent mb-4" />
+                  <div className="text-[15px] font-medium text-slate-900 mb-1">
                     {file ? file.name : "Drop your denial letter here"}
                   </div>
-                  <div className="text-[13px] text-[#64748b]">
+                  <div className="text-[13px] text-slate-500">
                     {file ? "Click to change file" : "or click to browse · PDF, DOCX, TXT"}
                   </div>
                   <input
@@ -231,8 +231,8 @@ export default function DemoSection() {
                 </div>
 
                 <div>
-                  <label className="text-[13px] font-medium text-[#94a3b8] mb-1.5 block">
-                    Patient Chart Notes <span className="text-[#64748b] font-normal">(optional)</span>
+                  <label className="text-[13px] font-medium text-slate-600 mb-1.5 block">
+                    Patient Chart Notes <span className="text-slate-500 font-normal">(optional)</span>
                   </label>
                   <textarea
                     className="dark-textarea"
@@ -243,14 +243,14 @@ export default function DemoSection() {
                   />
                 </div>
 
-                <button className="btn-primary" disabled={!file} onClick={handleGenerate}>
+                <button className="btn-primary w-full" disabled={!file} onClick={handleGenerate}>
                   Generate Appeal <ChevronRight className="w-4 h-4 ml-1" />
                 </button>
 
                 {error && (
-                  <div className="mt-4 p-4 rounded-xl border border-[#ef4444] bg-[#111827]">
-                    <div className="text-[#ef4444] font-semibold text-sm">❌ Error</div>
-                    <div className="text-[#94a3b8] text-[13px] mt-1">{error}</div>
+                  <div className="mt-4 p-4 rounded-xl border border-rose-300 bg-rose-50">
+                    <div className="text-rose-600 font-semibold text-sm">❌ Error</div>
+                    <div className="text-rose-500 text-[13px] mt-1">{error}</div>
                   </div>
                 )}
               </div>
@@ -258,23 +258,23 @@ export default function DemoSection() {
 
             {pipelineState === "processing" && (
               <div className="animate-fade-in flex flex-col gap-6 max-w-lg mx-auto w-full">
-                <div className="text-sm text-[#94a3b8] text-center">
-                  Processing: <strong className="text-white">{file?.name || "sample case"}</strong>
+                <div className="text-sm text-slate-600 text-center">
+                  Processing: <strong className="text-slate-900">{file?.name || "sample case"}</strong>
                 </div>
 
                 <div className="flex flex-col gap-3">
                   {steps.map((step, i) => (
                     <div key={i} className={`pipeline-step ${step.status}`}>
                       <div className="flex items-center gap-2 text-sm font-medium">
-                        {step.status === "completed" && <span className="text-[#10b981]">✅</span>}
-                        {step.status === "active" && <span className="animate-pulse-dot text-[#f59e0b]">⏳</span>}
-                        {step.status === "pending" && <span className="text-[#64748b]">○</span>}
-                        <span className={step.status === "pending" ? "text-[#64748b]" : "text-white"}>
+                        {step.status === "completed" && <span className="text-emerald-600">✅</span>}
+                        {step.status === "active" && <span className="animate-pulse-dot text-amber-600">⏳</span>}
+                        {step.status === "pending" && <span className="text-slate-400">○</span>}
+                        <span className={step.status === "pending" ? "text-slate-400" : "text-slate-900"}>
                           Step {i + 1}: {step.label}
                         </span>
                       </div>
                       {step.status !== "pending" && (
-                        <div className="text-xs text-[#94a3b8] mt-1 ml-6">
+                        <div className="text-xs text-slate-500 mt-1 ml-6">
                           {step.detail}
                         </div>
                       )}
@@ -286,7 +286,7 @@ export default function DemoSection() {
                   <div className="progress-bar-outer">
                     <div className="progress-bar-indeterminate" />
                   </div>
-                  <div className="text-xs text-[#64748b] text-center mt-2">
+                  <div className="text-xs text-slate-500 text-center mt-2">
                     {elapsed.toFixed(1)}s elapsed · Running on AMD MI300X
                   </div>
                 </div>
@@ -295,18 +295,18 @@ export default function DemoSection() {
 
             {pipelineState === "results" && (
               <div className="animate-slide-down flex flex-col w-full h-full" ref={resultsRef}>
-                <div className="flex items-center justify-between mb-4 pb-4 border-b border-[#1e3a5f]">
+                <div className="flex items-center justify-between mb-4 pb-4 border-b border-slate-200">
                   <div className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-[#10b981]" />
-                    <span className="font-semibold text-white">Appeal Generated</span>
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                    <span className="font-semibold text-slate-900">Appeal Generated</span>
                     {meta && (
-                      <span className="text-xs text-[#64748b] font-mono hidden sm:inline-block">
+                      <span className="text-xs text-slate-500 font-mono hidden sm:inline-block">
                         {meta.elapsed}s · ~{Math.round(meta.contextChars / 4).toLocaleString()} tokens
                       </span>
                     )}
                   </div>
                   <div className="flex items-center gap-2">
-                    <button onClick={handleReset} className="text-xs text-[#94a3b8] hover:text-white mr-4 transition-colors">
+                    <button onClick={handleReset} className="text-xs text-slate-500 hover:text-slate-900 mr-4 transition-colors">
                       ← Try Another
                     </button>
                     <button onClick={copyAppeal} className="btn-secondary h-8 px-3 text-xs w-auto">
@@ -319,20 +319,23 @@ export default function DemoSection() {
                 </div>
 
                 {/* Split view for results */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1 overflow-hidden h-[500px]">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 flex-1 overflow-hidden h-125">
                   
                   {/* Original Denial (mocked representation for demo purposes) */}
-                  <div className="surface-card flex flex-col overflow-hidden bg-[#0f1523]">
-                    <div className="bg-[#1e293b] px-3 py-2 text-xs font-semibold text-[#94a3b8] border-b border-[#1e3a5f]">
+                  <div className="surface-card flex flex-col overflow-hidden">
+                    <div
+                      className="px-3 py-2 text-xs font-semibold border-b text-slate-500"
+                      style={{ background: "var(--bg-input)", borderColor: "var(--border-default)" }}
+                    >
                       Extracted Denial Details
                     </div>
                     <div className="p-4 overflow-y-auto text-sm space-y-3">
-                       <div className="kv-row"><span className="kv-label">Payer</span><span className="text-white">{denial?.payer || "N/A"}</span></div>
-                       <div className="kv-row"><span className="kv-label">Code</span><span className="text-[#ef4444] font-mono">{denial?.denial_code || "N/A"}</span></div>
-                       <div className="kv-row"><span className="kv-label">Service</span><span className="text-white">{denial?.denied_service || "N/A"}</span></div>
+                       <div className="kv-row"><span className="kv-label">Payer</span><span className="text-slate-900">{denial?.payer || "N/A"}</span></div>
+                       <div className="kv-row"><span className="kv-label">Code</span><span className="text-rose-600 font-mono">{denial?.denial_code || "N/A"}</span></div>
+                       <div className="kv-row"><span className="kv-label">Service</span><span className="text-slate-900">{denial?.denied_service || "N/A"}</span></div>
                        <div className="mt-4">
-                         <div className="text-xs text-[#64748b] uppercase tracking-wider mb-2">Original Text</div>
-                         <div className="text-[#94a3b8] leading-relaxed italic text-xs bg-[#111827] p-3 rounded-lg border border-[#1e3a5f]">
+                         <div className="text-xs text-slate-500 uppercase tracking-wider mb-2">Original Text</div>
+                         <div className="text-slate-600 leading-relaxed italic text-xs bg-white p-3 rounded-lg border border-slate-200">
                            "Your request for coverage has been denied because medical necessity was not established. 
                            The submitted documentation did not meet the criteria outlined in our commercial medical policy..."
                          </div>
@@ -341,12 +344,18 @@ export default function DemoSection() {
                   </div>
 
                   {/* Generated Appeal */}
-                  <div className="surface-card flex flex-col overflow-hidden border-[#3b82f6] shadow-[0_0_15px_rgba(59,130,246,0.15)]">
-                    <div className="bg-[#1a2b4c] px-3 py-2 text-xs font-semibold text-[#3b82f6] border-b border-[#3b82f6] flex justify-between">
+                  <div
+                    className="surface-card flex flex-col overflow-hidden"
+                    style={{ borderColor: "rgba(14,116,144,0.5)", boxShadow: "0 16px 32px rgba(14,116,144,0.12)" }}
+                  >
+                    <div
+                      className="px-3 py-2 text-xs font-semibold flex justify-between"
+                      style={{ background: "rgba(14,116,144,0.08)", borderBottom: "1px solid rgba(14,116,144,0.4)", color: "#0e7490" }}
+                    >
                       <span>Generated Appeal</span>
-                      <span className="text-[#10b981]">High Confidence (82%)</span>
+                      <span className="text-emerald-600">High Confidence (82%)</span>
                     </div>
-                    <div className="p-5 overflow-y-auto bg-[#0a0f1a]">
+                    <div className="p-5 overflow-y-auto" style={{ background: "var(--bg-primary)" }}>
                       <div className="appeal-markdown">
                         <ReactMarkdown remarkPlugins={[remarkGfm]}>{appeal}</ReactMarkdown>
                       </div>

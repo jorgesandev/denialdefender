@@ -1,0 +1,8 @@
+{
+  "case_id": "case_028",
+  "patient_id": "3beee40e-512b-420f-38a3-28e56cddbc9b",
+  "payer": "UHC",
+  "specialty": "OB/GYN",
+  "denial_reason": "No prior authorization",
+  "status": "generated"
+}

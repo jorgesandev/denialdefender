@@ -1,0 +1,8 @@
+{
+  "case_id": "case_019",
+  "patient_id": "aeabbc7e-1f5f-91fe-ac34-52c1ceca0b6b",
+  "payer": "Cigna",
+  "specialty": "Endocrinology",
+  "denial_reason": "Eligibility issues",
+  "status": "generated"
+}

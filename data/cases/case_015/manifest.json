@@ -1,0 +1,8 @@
+{
+  "case_id": "case_015",
+  "patient_id": "9ccd0d4f-f8f2-34a4-4ba9-9b9b92c6370a",
+  "payer": "Aetna",
+  "specialty": "Endocrinology",
+  "denial_reason": "Missing documentation",
+  "status": "generated"
+}

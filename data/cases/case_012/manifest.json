@@ -1,0 +1,8 @@
+{
+  "case_id": "case_012",
+  "patient_id": "87bd827a-41ca-256f-6e86-2d5e9623f805",
+  "payer": "Cigna",
+  "specialty": "Oncology",
+  "denial_reason": "Coding error",
+  "status": "generated"
+}

@@ -1,0 +1,8 @@
+{
+  "case_id": "case_007",
+  "patient_id": "edc8dc01-9e25-8cb5-c18e-9b9b75ccd1ee",
+  "payer": "UHC",
+  "specialty": "Behavioral Health",
+  "denial_reason": "No prior authorization",
+  "status": "generated"
+}

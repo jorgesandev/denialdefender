@@ -1,0 +1,8 @@
+{
+  "case_id": "case_021",
+  "patient_id": "69280d14-c5eb-897b-59ce-e4432cd9509a",
+  "payer": "BCBS",
+  "specialty": "Gastroenterology",
+  "denial_reason": "Coding error",
+  "status": "generated"
+}

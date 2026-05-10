@@ -1,0 +1,8 @@
+{
+  "case_id": "case_009",
+  "patient_id": "22b01ffb-7537-e873-3a7c-0d6961c498d7",
+  "payer": "UHC",
+  "specialty": "Behavioral Health",
+  "denial_reason": "Coding error",
+  "status": "generated"
+}

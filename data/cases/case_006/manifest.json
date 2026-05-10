@@ -1,0 +1,8 @@
+{
+  "case_id": "case_006",
+  "patient_id": "f75b4628-3ea9-4f6c-b3a6-e7ff678f58cf",
+  "payer": "Medicare",
+  "specialty": "Cardiology",
+  "denial_reason": "Missing documentation",
+  "status": "generated"
+}

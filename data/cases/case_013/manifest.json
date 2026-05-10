@@ -1,0 +1,8 @@
+{
+  "case_id": "case_013",
+  "patient_id": "bc8d72aa-9065-473c-d9cd-cceb942ddfaf",
+  "payer": "BCBS",
+  "specialty": "Endocrinology",
+  "denial_reason": "Medical necessity not established",
+  "status": "generated"
+}

@@ -1,0 +1,8 @@
+{
+  "case_id": "case_027",
+  "patient_id": "b795bf03-28fb-ad1d-5a43-3e44422700a7",
+  "payer": "Cigna",
+  "specialty": "Endocrinology",
+  "denial_reason": "Medical necessity not established",
+  "status": "generated"
+}

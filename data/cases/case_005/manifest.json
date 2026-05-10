@@ -1,0 +1,8 @@
+{
+  "case_id": "case_005",
+  "patient_id": "477f3dee-5a4b-0f03-917a-b1fc9e9d3110",
+  "payer": "Aetna",
+  "specialty": "Gastroenterology",
+  "denial_reason": "No prior authorization",
+  "status": "generated"
+}

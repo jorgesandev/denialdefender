@@ -1,0 +1,8 @@
+{
+  "case_id": "case_001",
+  "patient_id": "dee615ed-08f1-976e-1576-a2b2fd2dcfa0",
+  "payer": "Aetna",
+  "specialty": "Cardiology",
+  "denial_reason": "Coding error",
+  "status": "generated"
+}

@@ -1,0 +1,8 @@
+{
+  "case_id": "case_025",
+  "patient_id": "acbb6a45-6e0d-a628-8dc5-8b15fae31b8a",
+  "payer": "UHC",
+  "specialty": "OB/GYN",
+  "denial_reason": "Medical necessity not established",
+  "status": "generated"
+}

@@ -41,6 +41,7 @@ temp_pdf_content.txt
 frontend/.env.local
 
 # Synthetic data (generated locally, not committed)
+data/csv/
 data/synthetic/denials/*
 !data/synthetic/denials/.gitkeep
 

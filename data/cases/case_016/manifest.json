@@ -1,0 +1,8 @@
+{
+  "case_id": "case_016",
+  "patient_id": "53b5f4de-38ea-8da9-5474-e59ab7d9c88d",
+  "payer": "BCBS",
+  "specialty": "Gastroenterology",
+  "denial_reason": "Medical necessity not established",
+  "status": "generated"
+}

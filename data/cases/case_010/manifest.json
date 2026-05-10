@@ -1,0 +1,8 @@
+{
+  "case_id": "case_010",
+  "patient_id": "d02b2ca5-7e63-1c3d-505f-3a7218bac46d",
+  "payer": "BCBS",
+  "specialty": "Orthopedics",
+  "denial_reason": "No prior authorization",
+  "status": "generated"
+}

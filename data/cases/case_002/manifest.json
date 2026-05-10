@@ -1,0 +1,8 @@
+{
+  "case_id": "case_002",
+  "patient_id": "be86cb71-0481-f2c6-c89b-e8ea1136a893",
+  "payer": "UHC",
+  "specialty": "Gastroenterology",
+  "denial_reason": "No prior authorization",
+  "status": "generated"
+}

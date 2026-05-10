@@ -1,0 +1,8 @@
+{
+  "case_id": "case_023",
+  "patient_id": "d477c46c-6e56-e32f-0c28-7356caab1e8b",
+  "payer": "UHC",
+  "specialty": "Orthopedics",
+  "denial_reason": "Eligibility issues",
+  "status": "generated"
+}

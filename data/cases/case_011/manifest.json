@@ -1,0 +1,8 @@
+{
+  "case_id": "case_011",
+  "patient_id": "faf1d0f2-c429-72a4-5be0-e542949829ab",
+  "payer": "BCBS",
+  "specialty": "Oncology",
+  "denial_reason": "Medical necessity not established",
+  "status": "generated"
+}

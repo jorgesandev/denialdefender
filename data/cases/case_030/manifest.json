@@ -1,0 +1,8 @@
+{
+  "case_id": "case_030",
+  "patient_id": "f8d9fe9e-f635-5340-41cc-935771d6dec0",
+  "payer": "UHC",
+  "specialty": "Endocrinology",
+  "denial_reason": "No prior authorization",
+  "status": "generated"
+}

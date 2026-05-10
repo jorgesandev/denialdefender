@@ -1,0 +1,242 @@
+[
+  {
+    "case_id": "case_001",
+    "patient_id": "dee615ed-08f1-976e-1576-a2b2fd2dcfa0",
+    "payer": "Aetna",
+    "specialty": "Cardiology",
+    "denial_reason": "Coding error",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_002",
+    "patient_id": "be86cb71-0481-f2c6-c89b-e8ea1136a893",
+    "payer": "UHC",
+    "specialty": "Gastroenterology",
+    "denial_reason": "No prior authorization",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_003",
+    "patient_id": "562e7d26-9dfb-95f2-0815-3c20129955b8",
+    "payer": "Aetna",
+    "specialty": "Oncology",
+    "denial_reason": "Missing documentation",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_004",
+    "patient_id": "83c5cc27-48a8-5580-966b-783719fe8f1b",
+    "payer": "Cigna",
+    "specialty": "Cardiology",
+    "denial_reason": "Medical necessity not established",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_005",
+    "patient_id": "477f3dee-5a4b-0f03-917a-b1fc9e9d3110",
+    "payer": "Aetna",
+    "specialty": "Gastroenterology",
+    "denial_reason": "No prior authorization",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_006",
+    "patient_id": "f75b4628-3ea9-4f6c-b3a6-e7ff678f58cf",
+    "payer": "Medicare",
+    "specialty": "Cardiology",
+    "denial_reason": "Missing documentation",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_007",
+    "patient_id": "edc8dc01-9e25-8cb5-c18e-9b9b75ccd1ee",
+    "payer": "UHC",
+    "specialty": "Behavioral Health",
+    "denial_reason": "No prior authorization",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_008",
+    "patient_id": "f93c78a3-57b8-4858-cad5-e449f26e3857",
+    "payer": "Cigna",
+    "specialty": "Endocrinology",
+    "denial_reason": "Medical necessity not established",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_009",
+    "patient_id": "22b01ffb-7537-e873-3a7c-0d6961c498d7",
+    "payer": "UHC",
+    "specialty": "Behavioral Health",
+    "denial_reason": "Coding error",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_010",
+    "patient_id": "d02b2ca5-7e63-1c3d-505f-3a7218bac46d",
+    "payer": "BCBS",
+    "specialty": "Orthopedics",
+    "denial_reason": "No prior authorization",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_011",
+    "patient_id": "faf1d0f2-c429-72a4-5be0-e542949829ab",
+    "payer": "BCBS",
+    "specialty": "Oncology",
+    "denial_reason": "Medical necessity not established",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_012",
+    "patient_id": "87bd827a-41ca-256f-6e86-2d5e9623f805",
+    "payer": "Cigna",
+    "specialty": "Oncology",
+    "denial_reason": "Coding error",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_013",
+    "patient_id": "bc8d72aa-9065-473c-d9cd-cceb942ddfaf",
+    "payer": "BCBS",
+    "specialty": "Endocrinology",
+    "denial_reason": "Medical necessity not established",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_014",
+    "patient_id": "18022a84-1fd7-ba38-3567-efbc6a50e9d4",
+    "payer": "Cigna",
+    "specialty": "Oncology",
+    "denial_reason": "Eligibility issues",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_015",
+    "patient_id": "9ccd0d4f-f8f2-34a4-4ba9-9b9b92c6370a",
+    "payer": "Aetna",
+    "specialty": "Endocrinology",
+    "denial_reason": "Missing documentation",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_016",
+    "patient_id": "53b5f4de-38ea-8da9-5474-e59ab7d9c88d",
+    "payer": "BCBS",
+    "specialty": "Gastroenterology",
+    "denial_reason": "Medical necessity not established",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_017",
+    "patient_id": "582bf373-c5f4-2e6c-b924-e5b2bb2e102a",
+    "payer": "Aetna",
+    "specialty": "Gastroenterology",
+    "denial_reason": "Coding error",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_018",
+    "patient_id": "2c293700-fabf-3c0c-8d1a-67cd127dcb12",
+    "payer": "Aetna",
+    "specialty": "Gastroenterology",
+    "denial_reason": "Medical necessity not established",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_019",
+    "patient_id": "aeabbc7e-1f5f-91fe-ac34-52c1ceca0b6b",
+    "payer": "Cigna",
+    "specialty": "Endocrinology",
+    "denial_reason": "Eligibility issues",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_020",
+    "patient_id": "b03985e9-38d0-4564-1b52-4a8651cecdd5",
+    "payer": "BCBS",
+    "specialty": "Orthopedics",
+    "denial_reason": "Coding error",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_021",
+    "patient_id": "69280d14-c5eb-897b-59ce-e4432cd9509a",
+    "payer": "BCBS",
+    "specialty": "Gastroenterology",
+    "denial_reason": "Coding error",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_022",
+    "patient_id": "7decf363-d260-555d-ffaf-a2c2833f39d6",
+    "payer": "Aetna",
+    "specialty": "Orthopedics",
+    "denial_reason": "Missing documentation",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_023",
+    "patient_id": "d477c46c-6e56-e32f-0c28-7356caab1e8b",
+    "payer": "UHC",
+    "specialty": "Orthopedics",
+    "denial_reason": "Eligibility issues",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_024",
+    "patient_id": "989f497b-48d4-50e7-2df2-9b583f0ceebc",
+    "payer": "Cigna",
+    "specialty": "Endocrinology",
+    "denial_reason": "Missing documentation",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_025",
+    "patient_id": "acbb6a45-6e0d-a628-8dc5-8b15fae31b8a",
+    "payer": "UHC",
+    "specialty": "OB/GYN",
+    "denial_reason": "Medical necessity not established",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_026",
+    "patient_id": "55c5b8d3-99d0-58ad-8444-e42bb81bd5c7",
+    "payer": "UHC",
+    "specialty": "Cardiology",
+    "denial_reason": "Coding error",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_027",
+    "patient_id": "b795bf03-28fb-ad1d-5a43-3e44422700a7",
+    "payer": "Cigna",
+    "specialty": "Endocrinology",
+    "denial_reason": "Medical necessity not established",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_028",
+    "patient_id": "3beee40e-512b-420f-38a3-28e56cddbc9b",
+    "payer": "UHC",
+    "specialty": "OB/GYN",
+    "denial_reason": "No prior authorization",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_029",
+    "patient_id": "407ef75b-0a9c-ec23-60e5-c90ba86e27af",
+    "payer": "Cigna",
+    "specialty": "Behavioral Health",
+    "denial_reason": "Eligibility issues",
+    "status": "generated"
+  },
+  {
+    "case_id": "case_030",
+    "patient_id": "f8d9fe9e-f635-5340-41cc-935771d6dec0",
+    "payer": "UHC",
+    "specialty": "Endocrinology",
+    "denial_reason": "No prior authorization",
+    "status": "generated"
+  }
+]

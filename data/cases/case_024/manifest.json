@@ -1,0 +1,8 @@
+{
+  "case_id": "case_024",
+  "patient_id": "989f497b-48d4-50e7-2df2-9b583f0ceebc",
+  "payer": "Cigna",
+  "specialty": "Endocrinology",
+  "denial_reason": "Missing documentation",
+  "status": "generated"
+}

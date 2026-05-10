@@ -1,0 +1,8 @@
+{
+  "case_id": "case_029",
+  "patient_id": "407ef75b-0a9c-ec23-60e5-c90ba86e27af",
+  "payer": "Cigna",
+  "specialty": "Behavioral Health",
+  "denial_reason": "Eligibility issues",
+  "status": "generated"
+}

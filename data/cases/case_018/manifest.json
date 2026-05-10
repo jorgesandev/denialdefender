@@ -1,0 +1,8 @@
+{
+  "case_id": "case_018",
+  "patient_id": "2c293700-fabf-3c0c-8d1a-67cd127dcb12",
+  "payer": "Aetna",
+  "specialty": "Gastroenterology",
+  "denial_reason": "Medical necessity not established",
+  "status": "generated"
+}

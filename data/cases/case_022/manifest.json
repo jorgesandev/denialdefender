@@ -1,0 +1,8 @@
+{
+  "case_id": "case_022",
+  "patient_id": "7decf363-d260-555d-ffaf-a2c2833f39d6",
+  "payer": "Aetna",
+  "specialty": "Orthopedics",
+  "denial_reason": "Missing documentation",
+  "status": "generated"
+}

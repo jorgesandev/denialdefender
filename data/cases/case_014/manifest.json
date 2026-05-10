@@ -1,0 +1,8 @@
+{
+  "case_id": "case_014",
+  "patient_id": "18022a84-1fd7-ba38-3567-efbc6a50e9d4",
+  "payer": "Cigna",
+  "specialty": "Oncology",
+  "denial_reason": "Eligibility issues",
+  "status": "generated"
+}

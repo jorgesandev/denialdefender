@@ -1,0 +1,8 @@
+{
+  "case_id": "case_026",
+  "patient_id": "55c5b8d3-99d0-58ad-8444-e42bb81bd5c7",
+  "payer": "UHC",
+  "specialty": "Cardiology",
+  "denial_reason": "Coding error",
+  "status": "generated"
+}

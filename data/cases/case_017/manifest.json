@@ -1,0 +1,8 @@
+{
+  "case_id": "case_017",
+  "patient_id": "582bf373-c5f4-2e6c-b924-e5b2bb2e102a",
+  "payer": "Aetna",
+  "specialty": "Gastroenterology",
+  "denial_reason": "Coding error",
+  "status": "generated"
+}

@@ -53,7 +53,7 @@ export default function DataHubSection() {
                   </div>
                 </li>
               </ul>
-              <a href="https://github.com/jorgesandoval/denialdefender" className="mt-6 text-[#3b82f6] text-sm font-medium flex items-center hover:text-white transition-colors">
+              <a href="https://github.com/jorgesandev/denialdefender" className="mt-6 text-[#3b82f6] text-sm font-medium flex items-center hover:text-white transition-colors">
                 View Generation Scripts on GitHub <ArrowRight className="w-4 h-4 ml-1" />
               </a>
             </div>

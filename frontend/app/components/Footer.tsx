@@ -22,7 +22,7 @@ export default function Footer() {
           <ul className="space-y-2">
             <li><a href="#demo" className="hover:text-white transition-colors">Interactive Demo</a></li>
             <li><a href="#data-hub" className="hover:text-white transition-colors">Data Hub</a></li>
-            <li><a href="https://github.com/jorgesandoval/denialdefender" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub Repository</a></li>
+            <li><a href="https://github.com/jorgesandev/denialdefender" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub Repository</a></li>
             <li><a href="https://huggingface.co/spaces/lablab-ai-amd-developer-hackathon/denialdefender" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Hugging Face Space</a></li>
           </ul>
         </div>

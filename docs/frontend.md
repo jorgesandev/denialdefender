@@ -1,37 +1,63 @@
-# DenialDefender Frontend Architecture
+# DenialDefender Frontend
 
-The frontend for DenialDefender is a premium, Series B MedTech-grade web application built to serve as both a high-conversion commercial landing page and a technical showcase for the AMD Developer Hackathon.
+This document describes the frontend's style, layout, and where to find the key UI pieces. The site uses a refined "Executive Light" theme with a clean, premium landing layout (NAV → HERO → ProofBar → Workflow → Demo → Evidence → Guardrails → CTA → Footer).
 
-## Tech Stack
+## Tech & Design Summary
 - **Framework:** Next.js 16 (App Router)
-- **Library:** React 19
-- **Styling:** Tailwind CSS v4
-- **Icons:** `lucide-react`
-- **Animations:** CSS-based animations mapped via Tailwind (`animate-fade-in`, `animate-slide-down`, `animate-pulse-glow`)
+- **UI:** React 19 + Tailwind CSS v4
+- **Icons:** lucide-react (fallbacks: `GitFork` used where `Github` wasn't available)
+- **Fonts:** Sora for display, IBM Plex Sans for body, IBM Plex Mono for code (wired in `app/layout.tsx` and CSS variables)
+- **Theme:** "Executive Light" — light backgrounds, a saturated blue navbar (`#0f4c81`), subtle elevated cards, and restrained accent colors.
 
-## Design System: "Clinical Dark"
-The application adheres to a highly customized "Clinical Dark" design system to convey trust, performance, and modern AI capabilities.
-- **Backgrounds:** Deep slates and off-blacks (`#0a0f1a`, `#111827`).
-- **Accents:** Vibrant Medical Cyan (`#00E5FF` to `#00B4D8`) used for gradients, success states, and primary actions.
-- **Typography:** Inter (sans-serif for high legibility) and JetBrains Mono (for code, metadata, and pipeline statistics).
-- **Glassmorphism:** Use of translucent surface cards (`.surface-card`) with subtle borders and shadows to create depth without relying on stark borders.
+## Key Files & Assets
+- Logo: [frontend/public/brand/logos/logo-with-text-hq.png](frontend/public/brand/logos/logo-with-text-hq.png)
+- Navbar: [frontend/app/components/Navbar.tsx](frontend/app/components/Navbar.tsx)
+- Global tokens & theme: [frontend/app/globals.css](frontend/app/globals.css)
+- Hero: [frontend/app/components/HeroSection.tsx](frontend/app/components/HeroSection.tsx)
+- Demo: [frontend/app/components/DemoSection.tsx](frontend/app/components/DemoSection.tsx)
+- Evidence & Data: [frontend/app/components/EvidenceSection.tsx](frontend/app/components/EvidenceSection.tsx)
 
-## Component Architecture
+## Components (what they do)
+- **Navbar:** compact branding + centered nav links; shows health/status pills and external links. Adjust height/padding in [globals.css](frontend/app/globals.css) and logo sizing in [Navbar.tsx](frontend/app/components/Navbar.tsx).
+- **HeroSection:** main value prop and CTAs (Try Demo, View Evidence, GitHub & Hugging Face buttons). Status pill polls the backend health endpoint.
+- **ProofBar:** metric tiles under the fold to build trust.
+- **WorkflowSection:** 4-step visual pipeline explanation.
+- **DemoSection:** upload UI, progress simulation, and streaming/display of generated appeal.
+- **EvidenceSection / DataHubSection:** documents data sources, payer policies, and sample downloads.
+- **GuardrailsSection & FinalCTASection:** usage guidance and closing CTA.
 
-The single-page structure in `app/page.tsx` is modularized into distinct components stored in `app/components/`:
+## Styling & Tokens
+- Global tokens live in `frontend/app/globals.css` and are used across Tailwind utilities.
+- Navbar color: `#0f4c81` (see `.nav-bar` in `globals.css`).
+- Fonts are injected via `app/layout.tsx` and referenced with CSS vars: `--font-display`, `--font-body`, `--font-code`.
 
-1. **`HeroSection.tsx`**: The main fold. Introduces the value proposition and dynamically presents the three pillars of the platform's architecture (AMD MI300X capabilities, RAG pipelines, and Multimodal Intake).
-2. **`DemoSection.tsx`**: The core interactive experience.
-   - Handles the state machine for the pipeline: `idle` → `processing` → `results`.
-   - Manages the `multipart/form-data` upload of the PDF denial letters.
-   - Visually simulates the processing steps while awaiting the actual inference response from the backend.
-   - Renders the generated markdown appeal using `react-markdown` alongside the parsed metadata.
-3. **`DataHubSection.tsx`**: Outlines the composition of the synthetic dataset and provides links to the repository and sample downloads.
-4. **`Navbar.tsx` & `Footer.tsx`**: Provides persistent navigation, hackathon metadata, Hugging Face Space links, and dynamically checks the backend's `MI300X Online` health status via polling.
+## Run & Development
+1. Install and run the frontend:
 
-## State Management and API Integration
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-The frontend operates statelessly regarding authentication or session storage (as this is a public demo), but relies heavily on React state within `DemoSection.tsx` to handle the asynchronous pipeline.
+2. Set the backend URL in `frontend/.env.local`:
 
-- **Endpoint:** `NEXT_PUBLIC_API_URL/api/generate`
-- **CORS & Routing:** The frontend is configured to hit the AMD cloud droplet via a secure `ngrok` tunnel (defined in `.env.local`). It sends the PDF and optional chart context, and awaits the synthesized appeal, updating the progress UI concurrently to provide immediate user feedback.
+```env
+NEXT_PUBLIC_API_URL=http://localhost:9000
+```
+
+3. The app will be available at `http://localhost:3000` by default.
+
+## Quick tips for common edits
+- Increase navbar height or logo size: edit [globals.css](frontend/app/globals.css) `.nav-bar` height and padding, then update the `Image` `width`/`height` values in [Navbar.tsx](frontend/app/components/Navbar.tsx).
+- Change hero CTA labels or add icons: edit [HeroSection.tsx](frontend/app/components/HeroSection.tsx).
+- Update theme tokens (colors/spacing): edit `frontend/app/globals.css` and follow existing CSS variable naming to keep Tailwind utilities consistent.
+
+## Environment & API
+- The frontend reads only one runtime variable: `NEXT_PUBLIC_API_URL` (used to call `/api/generate` and the health endpoint).
+
+## Contact
+For visual tweaks or new design assets, edit `frontend/public/brand/logos/` and update `Navbar.tsx` for sizing. Ping the repo owner for deployment keys and HF Space credentials.
+
+---
+See the live code in `frontend/app/components/` for implementation details and examples.

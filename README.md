@@ -163,6 +163,24 @@ npm run dev
 
 The Next.js frontend runs at `http://localhost:3000` and talks to the FastAPI backend at `http://localhost:9000`.
 
+## Frontend (Quick Reference)
+
+The frontend is a Next.js 16 App Router project styled with Tailwind CSS and uses an "Executive Light" theme (see `docs/frontend.md` for details). Key notes:
+
+- **Primary files:** [docs/frontend.md](docs/frontend.md) documents theme, components, and run instructions.
+- **Logo/brand:** `frontend/public/brand/logos/logo-with-text-hq.png` — change sizing in [frontend/app/components/Navbar.tsx](frontend/app/components/Navbar.tsx) and colors/padding in [frontend/app/globals.css](frontend/app/globals.css).
+- **Env:** set `NEXT_PUBLIC_API_URL` in `frontend/.env.local` to point the UI at your backend.
+
+Run locally:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open `http://localhost:3000`.
+
 ---
 
 ## HF Space Deployment

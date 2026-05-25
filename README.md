@@ -1,5 +1,7 @@
 <p align="center">
-  <img src="media/header-with-logo.png" width="600" alt="DenialDefender Logo">
+  <img src="frontend/public/brand/media/header-with-logo.png" width="600" alt="DenialDefender Logo">
+  <br>
+  <strong>Denial Defender</strong>
   <br>
   <strong>Autonomous Insurance Appeals for Hospital Revenue Cycle Teams</strong>
   <br>

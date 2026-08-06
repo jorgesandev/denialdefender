@@ -4,7 +4,7 @@ import { useState, useRef, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { SAMPLE_CASES, type SampleCase } from "../data";
-import { Upload, ChevronRight, FileText, CheckCircle2, Copy, Download } from "lucide-react";
+import { Upload, ChevronRight, CheckCircle2, Copy, Download } from "lucide-react";
 
 /* ── Types ──────────────────────────────────────────────── */
 interface DenialData {
@@ -336,8 +336,8 @@ export default function DemoSection() {
                        <div className="mt-4">
                          <div className="text-xs text-slate-500 uppercase tracking-wider mb-2">Original Text</div>
                          <div className="text-slate-600 leading-relaxed italic text-xs bg-white p-3 rounded-lg border border-slate-200">
-                           "Your request for coverage has been denied because medical necessity was not established. 
-                           The submitted documentation did not meet the criteria outlined in our commercial medical policy..."
+                           &ldquo;Your request for coverage has been denied because medical necessity was not established.
+                           The submitted documentation did not meet the criteria outlined in our commercial medical policy...&rdquo;
                          </div>
                        </div>
                     </div>

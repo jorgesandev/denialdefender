@@ -24,6 +24,16 @@
 
 ---
 
+**Live product:** [trydenialdefender.com](https://www.trydenialdefender.com)
+
+![DenialDefender product overview](docs/screenshots/overview.png)
+
+## My Contribution
+
+I built the working prototype across the Next.js review interface, FastAPI orchestration, multimodal intake, retrieval pipeline, synthetic evaluation data, and AMD MI300X deployment workflow.
+
+---
+
 ## The Problem
 
 US hospitals leave **$262 billion+** in recoverable revenue on the table every year. Writing insurance appeal letters is a labor-intensive, specialized workflow that currently fails to scale.
@@ -152,10 +162,9 @@ The MI300X is uniquely suited for this architecture:
 
 ## Author
 
-**Jorge Sandoval** · Team Sophon
+**Jorge Alejandro Sandoval Romo** · Team Sophon
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-jorgesandoval.dev-1A2B4A?style=flat-square)](https://jorgesandoval.dev)
-[![X](https://img.shields.io/badge/X-@jorgesandev-000000?style=flat-square&logo=x)](https://x.com/jorgesandev)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-jorgesandev-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/jorgesandev)
 
 ---
